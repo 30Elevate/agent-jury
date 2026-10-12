@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "name": "with-rule",
+  "createdAt": "2026-10-12T13:57:58.564Z",
+  "rubricPath": "rubric.md",
+  "artifactPath": "draft.md",
+  "rubric": {
+    "title": "Release notes for agent-jury 0.1.0",
+    "criteria": [
+      {
+        "id": "facts",
+        "text": "every claim about commands, the Node version and what the CLI does matches CHANGELOG.md and the output of `node src/cli.ts --help`"
+      },
+      {
+        "id": "complete",
+        "text": "every item listed under 0.1.0 in CHANGELOG.md is mentioned"
+      },
+      {
+        "id": "plain",
+        "text": "a developer who has never seen the repository understands each sentence in one pass; no term is used before it is explained"
+      },
+      {
+        "id": "no-promises",
+        "text": "nothing is claimed beyond what the code in src/ does"
+      }
+    ]
+  },
+  "maxRounds": 3,
+  "round": 3,
+  "closed": "PASS",
+  "rounds": [
+    {
+      "round": 1,
+      "judges": {
+        "A": {
+          "outcome": "NEEDS_WORK",
+          "blocked": [],
+          "artifactSha256": "c0cb63f71d457db48e51781a35191153ca203c083a5a097631cd5c1938b36b2e"
+        }
+      },
+      "merged": {
+        "outcome": "NEEDS_WORK",
+        "disputed": []
+      }
+    },
+    {
+      "round": 2,
+      "judges": {
+        "A": {
+          "outcome": "NEEDS_WORK",
+          "blocked": [],
+          "artifactSha256": "a8d327dbe0289a152965ec75d7d6930a90ebd328bb874cb2c0f961dea1d9f167"
+        }
+      },
+      "merged": {
+        "outcome": "NEEDS_WORK",
+        "disputed": []
+      }
+    },
+    {
+      "round": 3,
+      "judges": {
+        "A": {
+          "outcome": "PASS",
+          "blocked": [],
+          "artifactSha256": "581696bb860b2f21e09da90085a4993be7c1f823b7d185f732281eeda17728e1"
+        },
+        "B": {
+          "outcome": "PASS",
+          "blocked": [],
+          "artifactSha256": "581696bb860b2f21e09da90085a4993be7c1f823b7d185f732281eeda17728e1"
+        }
+      },
+      "merged": {
+        "outcome": "PASS",
+        "disputed": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "round": 1,
+  "judge": "A",
+  "verdict": "NEEDS_WORK",
+  "criteria": [
+    {
+      "id": "facts",
+      "result": "FAIL",
+      "reason": "Most claims match CHANGELOG.md and `--help`: the five commands, Node 22.18, the 3-round default, judge B after A, the artifact-change warning, DISPUTED and relative paths; but the claim that every FAIL must quote the text matches neither source, since CHANGELOG only says `record` looks for each objection's quote and the round-1 judge prompt says evidence only \"lets the tool and the author find the spot\".",
+      "evidence": "\"every FAIL a judge gives must quote the exact text it objects to\"",
+      "fix": "In the first paragraph, replace this clause with what CHANGELOG states: \"a judge should quote the text it objects to; from round 2 on, `record` checks that quote against the artifact\".",
+      "evidenceVerified": true
+    },
+    {
+      "id": "complete",
+      "result": "PASS",
+      "reason": "The draft covers every 0.1.0 item from CHANGELOG.md: the CLI and Node version, the anti-ratchet rule, the reviewer's boundary, the merge of two judges with DISPUTED, fixes tied to criteria, judge B after A with the change warning, relative paths, the skill, USE-ANYWHERE.md, example rubrics and the recorded run."
+    },
+    {
+      "id": "plain",
+      "result": "FAIL",
+      "reason": "The opening sentence uses `init`, \"FAIL\" and \"verdict\" before the draft explains them, because the commands appear only later and the grade values and verdict are never defined; it also packs three definitions into one semicolon chain, so a newcomer cannot read it in one pass.",
+      "evidence": "\"The draft under review is called the artifact; every FAIL a judge gives must quote the exact text it objects to; and one review, from `init` to the final verdict, is a run stored in its own folder.\"",
+      "fix": "Split this into three short sentences: (1) \"The draft under review is called the artifact.\" (2) \"A judge grades each rubric criterion PASS or FAIL, and the overall result is the verdict.\" (3) \"One full review is a run, stored in its own folder.\" Then name `init` only in the command list.",
+      "evidenceVerified": true
+    },
+    {
+      "id": "no-promises",
+      "result": "FAIL",
+      "reason": "src/ does not force a FAIL to carry a quote: `validateVerdict` in src/verdict.ts accepts a FAIL with no evidence, and src/ratchet.ts counts it in round 1 and on criteria that already failed; only a new objection on a previously passed criterion needs verified evidence.",
+      "evidence": "\"every FAIL a judge gives must quote the exact text it objects to\"",
+      "fix": "In the first paragraph, drop the word \"must\" and limit the claim to what src/ratchet.ts enforces, as in the Anti-ratchet bullet: a quote is required only for a new objection on a criterion that passed before.",
+      "evidenceVerified": true
+    }
+  ],
+  "optional": [
+    "\"The loop runs until the draft passes or reaches the round limit\" leaves out the third ending: a DISPUTED merge also closes the run (exit code 3). Consider adding \"or the judges disagree without evidence (DISPUTED)\".",
+    "`criteria[].fix` will mean little to a newcomer. Consider \"each fix sits inside the judge's verdict for that criterion\".",
+    "src/evidence.ts also accepts a line reference such as \"line 12\" as evidence, so the anti-ratchet bullet could say \"quote or line reference\".",
+    "\"drifting without it\" is vague. \"not converging without it\" would read more plainly.",
+    "Consider adding the exit codes from `--help` (0 to 5), because scripts and agents rely on them."
+  ],
+  "artifactSha256": "25244c7f940c6ec8f54c905b654df8fe2ca0b04452a7ec353bd5436ccd2ce149"
+}

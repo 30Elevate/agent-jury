@@ -1,0 +1,7 @@
+* text=auto eol=lf
+# Maintainer helper scripts are not part of the tool; keep them out of GitHub language stats.
+scripts/** linguist-detectable=false
+# The copy inside the skill folder mirrors src/; count the source once.
+skills/agent-jury/scripts/** linguist-vendored=true
+# Generated README banners (built outside the repo); keep them out of diffs and language stats.
+assets/** linguist-generated=true

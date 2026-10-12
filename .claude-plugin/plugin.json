@@ -1,0 +1,24 @@
+{
+  "name": "agent-jury",
+  "displayName": "agent-jury",
+  "version": "0.1.0",
+  "description": "A review loop that ends. A fresh judge each round, a bar that does not rise between rounds, two independent verdicts at the end, and DISPUTED handed to a human. Skill plus a dependency-free TypeScript CLI.",
+  "author": {
+    "name": "30Elevate",
+    "url": "https://30elevate.com"
+  },
+  "homepage": "https://github.com/30Elevate/agent-jury",
+  "repository": "https://github.com/30Elevate/agent-jury",
+  "license": "MIT",
+  "keywords": [
+    "review-loop",
+    "evaluator",
+    "llm-as-judge",
+    "evaluator-optimizer",
+    "quality-gate",
+    "claude",
+    "claude-skills",
+    "agent-skills",
+    "typescript"
+  ]
+}

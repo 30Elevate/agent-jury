@@ -1,0 +1,39 @@
+{
+  "round": 1,
+  "judge": "A",
+  "verdict": "NEEDS_WORK",
+  "criteria": [
+    {
+      "id": "facts",
+      "result": "FAIL",
+      "reason": "CHANGELOG.md and `--help` list five commands, including `status`, and require Node 22.18 or newer; the binary is `agent-jury`, `init` needs `<run> --rubric <file> --artifact <file>`, and the release ships as a skill, not a plugin.",
+      "evidence": "\"Four commands: `init`, `prompt`, `record` and `merge`. Requires Node 20 or newer.\"",
+      "fix": "In the first bullet, write \"Five commands: `init`, `prompt`, `record`, `merge` and `status`. Requires Node 22.18 or newer (native TypeScript support, no dependencies).\" Replace \"Ships as a Claude Code plugin.\" with \"Ships as an Agent Skill for Claude Code, Cowork and any agent that reads Agent Skills.\" Change \"run `jury init` in your project\" to \"run `agent-jury init <run> --rubric <file> --artifact <file>`\"."
+    },
+    {
+      "id": "complete",
+      "result": "FAIL",
+      "reason": "Several 0.1.0 items are missing: the `status` command, the reviewer's boundary (style goes to `optional`), fixes tied to criteria (`criteria[].fix`), judge B accepted only after judge A passed plus the `merge` warning when the artifact changed, relative run-state paths, `USE-ANYWHERE.md`, example rubrics for text/code/design, and the recorded run.",
+      "evidence": "\"What is in this release:\"",
+      "fix": "Under \"What is in this release:\", add one bullet for each missing CHANGELOG item: the reviewer's boundary; fixes tied to `criteria[].fix`; the judge B ordering and the `merge` warning; relative paths so a run folder can be shared; `USE-ANYWHERE.md` for assistants without a shell; example rubrics for text, code and design; the recorded run with and without the rule."
+    },
+    {
+      "id": "plain",
+      "result": "FAIL",
+      "reason": "\"Judges\" and \"round\" appear without explanation, so a newcomer cannot tell that judges are separate AI reviewers that the user runs, or what one round is.",
+      "evidence": "\"it runs\nfresh judges against the draft until it passes.\"",
+      "fix": "In the intro, define both terms at first use, for example: \"A judge is a fresh AI agent that grades the draft against the rubric. A round is one pass: the judges grade, you fix, then the next round starts.\""
+    },
+    {
+      "id": "no-promises",
+      "result": "FAIL",
+      "reason": "src/ has no API or network calls (the user runs the judges and calls `record`); disagreement without verified evidence becomes DISPUTED for a human and never \"the stricter verdict\" (merge.ts); a new objection with a quote found in the artifact still counts (ratchet.ts); and runs stop at a round limit (default 3, exit code 4), not only \"until it passes\".",
+      "evidence": "\"The CLI calls the judges for you through your API key, so one command runs a whole round.\"",
+      "fix": "Delete the API-key bullet and say instead that the CLI writes each judge's prompt (`prompt`) and records the judge's JSON (`record`). Replace \"If they disagree, the CLI picks the stricter verdict.\" with \"If they disagree and the failing judge's quote is not found in the artifact, the criterion is marked DISPUTED and a human decides.\" Change the anti-ratchet bullet to \"a new objection on a criterion that passed before counts only when its quote is found in the artifact\". Change \"until it passes\" to \"until it passes or reaches the round limit (3 by default)\"."
+    }
+  ],
+  "optional": [
+    "The tagline \"a review loop that ends\" matches the CLI banner; keep it, but say right after it why the loop ends (fixed bar and round limit).",
+    "Mention the exit codes (0/2/3/4/5) briefly, because scripts that use the CLI depend on them."
+  ]
+}

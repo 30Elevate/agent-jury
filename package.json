@@ -1,0 +1,44 @@
+{
+  "name": "agent-jury",
+  "version": "0.1.0",
+  "description": "A review loop that ends. Fresh judges, a fixed bar between rounds, two independent verdicts, and DISPUTED handed to a human. CLI in TypeScript with no dependencies, plus an Agent Skill for Claude Code, Codex, Gemini CLI and other agents.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "30Elevate",
+    "url": "https://30elevate.com"
+  },
+  "homepage": "https://github.com/30Elevate/agent-jury",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/30Elevate/agent-jury.git"
+  },
+  "bin": {
+    "agent-jury": "./bin/agent-jury.mjs"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "test": "node --test \"test/**/*.test.ts\"",
+    "sync": "node scripts/sync-skills.mjs",
+    "sync:check": "node scripts/sync-skills.mjs --check"
+  },
+  "keywords": [
+    "agent-skills",
+    "claude-skills",
+    "evaluator",
+    "llm-as-judge",
+    "review-loop",
+    "evaluator-optimizer",
+    "ai-agents",
+    "typescript"
+  ]
+}

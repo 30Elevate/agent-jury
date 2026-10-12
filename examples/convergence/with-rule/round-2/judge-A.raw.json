@@ -1,0 +1,33 @@
+{
+  "round": 2,
+  "judge": "A",
+  "verdict": "NEEDS_WORK",
+  "criteria": [
+    {
+      "id": "facts",
+      "result": "PASS",
+      "reason": "The draft now matches CHANGELOG.md and `--help`: five commands including `status`, Node 22.18 or newer, the `agent-jury` binary, `init <run> --rubric <file> --artifact <file>`, the Agent Skill packaging, and `npx skills add 30Elevate/agent-jury`."
+    },
+    {
+      "id": "complete",
+      "result": "PASS",
+      "reason": "Every 0.1.0 item from CHANGELOG.md now appears in the draft: the CLI and Node version, all three rules, `criteria[].fix`, the judge B ordering with the `merge` warning, relative paths, the skill, USE-ANYWHERE.md, the example rubrics and the recorded run."
+    },
+    {
+      "id": "plain",
+      "result": "FAIL",
+      "reason": "The intro now defines judge and round, but the bullets use \"artifact\" (the intro only says \"draft\") and an objection's \"quote\" without ever explaining them, so a newcomer cannot follow the anti-ratchet and DISPUTED sentences in one pass.",
+      "evidence": "\"Anti-ratchet: a new objection on a criterion that passed before counts only when its\"",
+      "fix": "In the intro, after the sentence that defines a judge, add: \"When a judge fails a criterion (an objection), it must quote the exact words from the draft it objects to.\" Then replace \"artifact\" with \"draft\" in the anti-ratchet bullet and in the two-judges bullet."
+    },
+    {
+      "id": "no-promises",
+      "result": "PASS",
+      "reason": "Each claim matches src/: there are no model or network calls, `prompt` and `record` work as stated, the ratchet in ratchet.ts and the DISPUTED handling in merge.ts match the text, `assertReadyForB` and the sha256 warning in cli.ts match the judge B bullet, and `--rounds` defaults to 3."
+    }
+  ],
+  "optional": [
+    "\"Run state\" and \"run folder\" assume the reader knows what a run is; one short clause such as \"each review is a named run\" would help.",
+    "The anti-ratchet rule also applies to criteria that were DISPUTED in the previous round (ratchet.ts); the draft does not have to say this, but it would be more precise."
+  ]
+}

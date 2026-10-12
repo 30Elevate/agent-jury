@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "agent-jury",
+  "description": "agent-jury - a review loop that ends: fresh judges, a fixed bar, two independent verdicts, DISPUTED for a human.",
+  "owner": {
+    "name": "30Elevate",
+    "url": "https://30elevate.com"
+  },
+  "plugins": [
+    {
+      "name": "agent-jury",
+      "displayName": "agent-jury",
+      "source": "./",
+      "description": "Runs a draft through independent judges against an explicit rubric until it passes, without the bar creeping up between rounds. Two judges confirm the final PASS; when they disagree without evidence, the verdict is DISPUTED and a human decides. Ships a CLI that keeps the state and enforces the rules.",
+      "author": {
+        "name": "30Elevate",
+        "url": "https://30elevate.com"
+      }
+    }
+  ]
+}

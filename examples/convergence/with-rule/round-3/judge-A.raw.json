@@ -1,0 +1,31 @@
+{
+  "round": 3,
+  "judge": "A",
+  "verdict": "PASS",
+  "criteria": [
+    {
+      "id": "facts",
+      "result": "PASS",
+      "reason": "The five commands, Node 22.18 or newer, no dependencies, the default of 3 rounds (`[--rounds 3]` in --help), the judge B gating and the artifact-change warning all match CHANGELOG.md and `node src/cli.ts --help`."
+    },
+    {
+      "id": "complete",
+      "result": "PASS",
+      "reason": "All nine 0.1.0 items in CHANGELOG.md are covered, from the CLI and the three rules through criteria[].fix, judge B gating, relative paths, the skill, USE-ANYWHERE.md, the example rubrics and the recorded run."
+    },
+    {
+      "id": "plain",
+      "result": "PASS",
+      "reason": "Prior objection fixed: the intro now defines an objection and its quote (\"it must quote the exact words from the draft it objects to\"), and the bullets say \"draft\" instead of \"artifact\", so the anti-ratchet and DISPUTED sentences read in one pass."
+    },
+    {
+      "id": "no-promises",
+      "result": "PASS",
+      "reason": "The claims match src/: the tool makes no model or network calls, mergeRound marks a split without verified evidence as DISPUTED, cmdMerge waits for judge B after A passes and warns when the sha256 hashes differ, and record checks evidence before applying the ratchet."
+    }
+  ],
+  "optional": [
+    "The install line uses the flag `--artifact <file>` while the prose says \"draft\"; a short note such as \"(your draft)\" after the flag would bridge the two terms.",
+    "\"Judge B\" and \"judge A\" appear without being named first; \"Two judges (A and B) confirm the final PASS\" would introduce the labels."
+  ]
+}

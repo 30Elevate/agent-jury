@@ -1,0 +1,32 @@
+# Secrets - never commit
+.env
+.env.*
+*.key
+*.pem
+secrets/
+**/credentials*
+
+# Local agent / editor config
+.claude/
+CLAUDE.md.local
+
+# Runs created by the CLI in a user's project
+.agent-jury/
+
+# Dependencies
+node_modules/
+
+# System
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Local / scratch
+*.local
+scratch/
+tmp/

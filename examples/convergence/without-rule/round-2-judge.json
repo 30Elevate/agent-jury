@@ -1,0 +1,39 @@
+{
+  "round": 1,
+  "judge": "A",
+  "verdict": "NEEDS_WORK",
+  "criteria": [
+    {
+      "id": "facts",
+      "result": "FAIL",
+      "reason": "The five commands, Node 22.18, the default of 3 rounds, the judge B gate, the merge warning and DISPUTED all match CHANGELOG.md, --help and src/, but the install line says the `agent-jury` command works after `npx skills add`, while CHANGELOG.md says that install puts the CLI inside the skill folder (README: `node <skill folder>/scripts/cli.ts`), and only an npm install of package.json's bin provides `agent-jury`.",
+      "evidence": "\"Install with `npx skills add 30Elevate/agent-jury` and run\"",
+      "fix": "In the last paragraph, replace the run command with `node <skill folder>/scripts/cli.ts init <run> --rubric <file> --artifact <file>`, or state that the `agent-jury` command needs a global install (`npm install -g github:30Elevate/agent-jury`).",
+      "evidenceVerified": true
+    },
+    {
+      "id": "complete",
+      "result": "PASS",
+      "reason": "All nine 0.1.0 items in CHANGELOG.md appear: the CLI and Node version, the three rules, criteria[].fix, the judge B order and artifact-change warning, relative paths, the Skill, USE-ANYWHERE.md, the example rubrics and the recorded run."
+    },
+    {
+      "id": "plain",
+      "result": "FAIL",
+      "reason": "The intro calls the reviewed file a \"draft\", but the bullets switch to \"artifact\" and \"its quote\" without saying that the artifact is the draft or that a judge must quote it, and \"run\" (run state, run folder) is never explained.",
+      "evidence": "\"counts only when its quote is found in the artifact\"",
+      "fix": "In the intro paragraph add one sentence: the draft under review is called the artifact, every FAIL a judge gives must quote the exact text it objects to, and one review from init to the final verdict is a run stored in its own folder.",
+      "evidenceVerified": true
+    },
+    {
+      "id": "no-promises",
+      "result": "PASS",
+      "reason": "Each behaviour claim matches the code in src/: no model calls (cli.ts), anti-ratchet via evidenceVerified (ratchet.ts, evidence.ts), the split-without-evidence DISPUTED rule (merge.ts), the B-after-A gate and the SHA warning (cli.ts), and relative stored paths (storedPath)."
+    }
+  ],
+  "optional": [
+    "\"The loop runs until the draft passes or reaches the round limit\" leaves out that a DISPUTED merge also closes the run; consider adding \"or the judges dispute a criterion\".",
+    "\"Judge B\" and \"judge A\" appear without saying which is which; \"the first judge (A) and a confirming judge (B)\" would read in one pass.",
+    "The changelog calls the merge deterministic (no third model decides); one word in the DISPUTED bullet would carry that."
+  ],
+  "artifactSha256": "a8d327dbe0289a152965ec75d7d6930a90ebd328bb874cb2c0f961dea1d9f167"
+}

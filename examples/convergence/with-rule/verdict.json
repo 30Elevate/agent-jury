@@ -1,0 +1,81 @@
+{
+  "run": "with-rule",
+  "outcome": "PASS",
+  "closed": "PASS",
+  "round": 3,
+  "merged": {
+    "round": 3,
+    "outcome": "PASS",
+    "criteria": [
+      {
+        "id": "facts",
+        "a": {
+          "id": "facts",
+          "result": "PASS",
+          "reason": "The five commands, Node 22.18 or newer, no dependencies, the default of 3 rounds (`[--rounds 3]` in --help), the judge B gating and the artifact-change warning all match CHANGELOG.md and `node src/cli.ts --help`."
+        },
+        "b": {
+          "id": "facts",
+          "result": "PASS",
+          "reason": "The five commands, the Node 22.18+ requirement, the 3-round default and the init/--rubric/--artifact syntax match the --help output, CHANGELOG.md and package.json engines."
+        },
+        "status": "PASS",
+        "note": "both judges passed it"
+      },
+      {
+        "id": "complete",
+        "a": {
+          "id": "complete",
+          "result": "PASS",
+          "reason": "All nine 0.1.0 items in CHANGELOG.md are covered, from the CLI and the three rules through criteria[].fix, judge B gating, relative paths, the skill, USE-ANYWHERE.md, the example rubrics and the recorded run."
+        },
+        "b": {
+          "id": "complete",
+          "result": "PASS",
+          "reason": "All nine CHANGELOG 0.1.0 items are present: the CLI, the three rules, the per-criterion fix, the A-before-B rule, relative paths, the skill, USE-ANYWHERE.md, the example rubrics and the recorded run."
+        },
+        "status": "PASS",
+        "note": "both judges passed it"
+      },
+      {
+        "id": "plain",
+        "a": {
+          "id": "plain",
+          "result": "PASS",
+          "reason": "Prior objection fixed: the intro now defines an objection and its quote (\"it must quote the exact words from the draft it objects to\"), and the bullets say \"draft\" instead of \"artifact\", so the anti-ratchet and DISPUTED sentences read in one pass."
+        },
+        "b": {
+          "id": "plain",
+          "result": "PASS",
+          "reason": "The prior objection is fixed: the intro now defines objection (with the quote requirement), judge, round and rubric, and the bullets use only 'draft', never 'artifact'."
+        },
+        "status": "PASS",
+        "note": "both judges passed it"
+      },
+      {
+        "id": "no-promises",
+        "a": {
+          "id": "no-promises",
+          "result": "PASS",
+          "reason": "The claims match src/: the tool makes no model or network calls, mergeRound marks a split without verified evidence as DISPUTED, cmdMerge waits for judge B after A passes and warns when the sha256 hashes differ, and record checks evidence before applying the ratchet."
+        },
+        "b": {
+          "id": "no-promises",
+          "result": "PASS",
+          "reason": "The draft's claims stay within the CHANGELOG and the CLI behaviour: the tool never calls a model, the judge runs elsewhere, and the 'loop ends' claim rests on the round limit (exit code 4)."
+        },
+        "status": "PASS",
+        "note": "both judges passed it"
+      }
+    ],
+    "fixes": [],
+    "optional": [
+      "The install line uses the flag `--artifact <file>` while the prose says \"draft\"; a short note such as \"(your draft)\" after the flag would bridge the two terms.",
+      "\"Judge B\" and \"judge A\" appear without being named first; \"Two judges (A and B) confirm the final PASS\" would introduce the labels.",
+      "'run' and 'run folder' are never defined for a newcomer, although `init <run>` appears in the last line.",
+      "'optional list' in the boundary bullet could say it is a field in the judge's JSON reply.",
+      "`merge` is first mentioned in the Judge B bullet and its purpose (combining the two judges' verdicts) is never stated on its own."
+    ],
+    "disputed": []
+  }
+}
