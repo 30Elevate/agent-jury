@@ -9,6 +9,8 @@
   },
   "homepage": "https://github.com/30Elevate/agent-jury",
   "repository": "https://github.com/30Elevate/agent-jury",
+  "privacyPolicyUrl": "https://30elevate.com/en/privacy-policy",
+  "supportUrl": "https://github.com/30Elevate/agent-jury/issues",
   "license": "MIT",
   "keywords": [
     "review-loop",
